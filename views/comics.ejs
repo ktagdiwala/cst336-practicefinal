@@ -6,11 +6,29 @@
     <% for (comic of comics) { %>
         <div class="comicStrip">
             <h3><%=comic.comicTitle%> (<%=comic.comicDate%>)</h3>
-            <img src="<%=comic.comicUrl%>" alt="<%=comic.comicTitle%>">
+            <img src="<%=comic.comicUrl%>" alt="<%=comic.comicTitle%>"><br>
+            <a class="link-underline link-underline-opacity-0 commentLink" id="<%=comic.comicId%>">View Comments</a>
         </div><br><br>
         <p></p>
     <% } %>
 
+      <!-- Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Comments</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="comments"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <%- include("partials/footer.ejs") %>
 </body>

@@ -10,7 +10,7 @@
 
     <% for (site of comicSites) { %>
         <a class="siteTitle" href="/comics?siteId=<%=site.comicSiteId%>"><h3><%=site.comicSiteName%></h3></a>
-        <a href="<%=site.comicSiteUrl%>"><%=site.comicSiteUrl%></a><br><br>
+        <a href="<%=site.comicSiteUrl%>" target="_blank"><%=site.comicSiteUrl%></a><br><br>
         <p></p>
     <% } %>
 

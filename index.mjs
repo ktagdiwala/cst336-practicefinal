@@ -78,7 +78,16 @@ app.get('/comics', async (req, res) => {
               WHERE comicSiteId = ?`;           
     let [rows] = await conn.query(sql, [siteId]);
     res.render("comics", {"comics": rows});
-});
+});// gets all comics from a specific comic site
+
+app.get('/api/comments/:id', async (req, res) => {
+    let comicId = req.params.id;
+    let sql = `SELECT *
+              FROM fe_comments
+              WHERE comicId = ?`;           
+    let [rows] = await conn.query(sql, [comicId]);
+    res.send(rows);
+});// gets all comments for a specific comic
 
 app.get("/dbTest", async(req, res) => {
     let sql = "SELECT CURDATE()";
