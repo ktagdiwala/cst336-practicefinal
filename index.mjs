@@ -89,6 +89,34 @@ app.get('/api/comments/:id', async (req, res) => {
     res.send(rows);
 });// gets all comments for a specific comic
 
+app.get("/comment/new", async (req, res)=>{
+    let comicId = req.query.comicId;
+    let sql = `SELECT *
+            FROM fe_comics
+            WHERE comicId = ?`;
+    const [rows] = await conn.query(sql, [comicId]);
+    res.render("newComment", {"comicInfo":rows});
+});// fill out information to add new comic
+
+app.post("/comment/new", async function(req, res){
+    let username = req.body.username;
+    let email = req.body.email;
+    let comment = req.body.comment;
+    let comicId = req.body.comicId;
+    let sql = `INSERT INTO fe_comments
+               (author, email, comment, comicId)
+                VALUES (?, ?, ?, ?)`;
+    let params = [username, email, comment, comicId];
+    const [rows] = await conn.query(sql, params);
+
+    let sql2 = `SELECT *
+        FROM fe_comics
+        WHERE comicId = ?`;
+    const [rows2] = await conn.query(sql2, [comicId]);
+    res.render("newComment", 
+               {"message": "Comment added!", "comicInfo": rows2});
+});// add new comment to database
+
 app.get("/dbTest", async(req, res) => {
     let sql = "SELECT CURDATE()";
     const [rows] = await conn.query(sql);

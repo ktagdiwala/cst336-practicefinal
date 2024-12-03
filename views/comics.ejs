@@ -7,7 +7,8 @@
         <div class="comicStrip">
             <h3><%=comic.comicTitle%> (<%=comic.comicDate%>)</h3>
             <img src="<%=comic.comicUrl%>" alt="<%=comic.comicTitle%>"><br>
-            <a class="link-underline link-underline-opacity-0 commentLink" id="<%=comic.comicId%>">View Comments</a>
+            <a class="commentLink" id="<%=comic.comicId%>">View Comments</a>
+            <a class="newComment" id="<%=comic.comicId%>" href="/comment/new?comicId=<%=comic.comicId%>">Add Comments</a>
         </div><br><br>
         <p></p>
     <% } %>

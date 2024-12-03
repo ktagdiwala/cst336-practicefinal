@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <h1>Add New Comment</h1>
+
+    <!-- displays the comic -->
+    <h3><%=comicInfo[0].comicTitle%> (<%=comicInfo[0].comicDate%>)</h3>
+    <img src="<%=comicInfo[0].comicUrl%>" alt="<%=comicInfo[0].comicTitle%>"><br>
+
+    <form method="POST" action="/comment/new" class="input-form">
+        <input type="hidden" name="comicId" value="<%=comicInfo[0].comicId%>">
+        Username:
+        <input type="text" name="username" required="required"><br>
+        Email Address:
+        <input type="text" name="email"><br>
+        Comment:
+        <textarea name="comment" required="required"></textarea>
+        </select><br>
+
+        <button class="btn btn-outline-primary">Submit Comment</button>
+    </form>
+    <% if (typeof message != "undefined"){ %>
+        <h3><%=message%></h3>
+    <% } %>
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
