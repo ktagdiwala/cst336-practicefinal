@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <h1>Add New Comic</h1>
+
+    <form method="POST" action="/comic/new" class="input-form">
+        Title:
+        <input type="text" name="title" required="required"><br>
+        Url:
+        <input type="text" name="url"><br>
+        Publish Date:
+        <input type="date" name="publishDate" required="required"><br>
+        Website:
+        <select name="website" required="required">
+            <% for (site of comicSites) { %>
+                <option value="<%=site.comicSiteId%>">
+                    <%=site.comicSiteName%>
+                </option>
+            <% } %>
+        </select><br>
+
+        <button class="btn btn-outline-primary">Add Comic</button>
+    </form>
+    <% if (typeof message != "undefined"){ %>
+        <h3><%=message%></h3>
+    <% } %>
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

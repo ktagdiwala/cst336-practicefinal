@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+hr {
+    width: 100%;
+    color: #0281B1;
+}
+
+footer {
+    margin-top: auto;
+    margin-bottom: 10px;
+    bottom: 0;
+    width: 100%;
+    text-align: start;
+    color: #2B6D98;
+    font-weight: 400;
+}
+
+#footer-content { /* displays image and text side-by-side */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+}
+
+#csumb-logo {
+    width: 70px;
+    height: auto;
+    border: 2px #2B6D98 solid;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+img {
+    max-width: 100vh;
+    max-height: auto;
+    align-self: center;
+}
+
+.siteTitle {
+    text-decoration: none;
+}
+
+table {
+    align-self: center;
+}
