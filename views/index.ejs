@@ -9,14 +9,14 @@
     </form><br>
 
     <% for (site of comicSites) { %>
-        <a class="siteTitle"><h3><%=site.comicSiteName%></h3></a>
+        <a class="siteTitle" href="/comics?siteId=<%=site.comicSiteId%>"><h3><%=site.comicSiteName%></h3></a>
         <a href="<%=site.comicSiteUrl%>"><%=site.comicSiteUrl%></a><br><br>
         <p></p>
     <% } %>
 
+    <button id="randomComic" class="btn btn-outline-primary">Display Random Comic</button>
     <img id="randomComicImg" src="" alt="">
     <h4 id="randomComicName"></h4>
-    <button id="randomComic" class="btn btn-outline-primary">Display Random Comic</button>
     <p></p><p></p>
 
     

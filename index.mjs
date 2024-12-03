@@ -70,6 +70,16 @@ app.get('/api/randomComic', async (req, res) => {
     res.send(rows);
 });// allows retrieval of random comic from client-side js
 
+app.get('/comics', async (req, res) => {
+    let siteId = req.query.siteId;
+    let sql = `SELECT *
+              FROM fe_comics
+              NATURAL JOIN fe_comic_sites
+              WHERE comicSiteId = ?`;           
+    let [rows] = await conn.query(sql, [siteId]);
+    res.render("comics", {"comics": rows});
+});
+
 app.get("/dbTest", async(req, res) => {
     let sql = "SELECT CURDATE()";
     const [rows] = await conn.query(sql);

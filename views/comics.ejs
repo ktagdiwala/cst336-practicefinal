@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <h1>View Comics</h1>
+    
+    <% for (comic of comics) { %>
+        <div class="comicStrip">
+            <h3><%=comic.comicTitle%> (<%=comic.comicDate%>)</h3>
+            <img src="<%=comic.comicUrl%>" alt="<%=comic.comicTitle%>">
+        </div><br><br>
+        <p></p>
+    <% } %>
+
+
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>
